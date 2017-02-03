@@ -4,10 +4,10 @@ Created with [Ultimate Module Creator 1.9.6.0](https://github.com/tzyganu/UMC1.9
 
 ## List View: 
 
-![List View](Preview-List.png?raw=true "List View")
+![LPreview-List](Preview-List.png?raw=true "List View")
 
 ## Edit View: 
-![List View](Preview-Edit.png?raw=true "Edit View")
+![Preview-Edit](Preview-Edit.png?raw=true "Edit View")
 
 
 ### Output List on CMS PAGE
