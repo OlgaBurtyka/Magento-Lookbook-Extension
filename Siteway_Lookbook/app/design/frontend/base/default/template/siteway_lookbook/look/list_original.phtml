@@ -1,0 +1,43 @@
+<?php 
+/**
+ * Siteway_Lookbook extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Siteway
+ * @package        Siteway_Lookbook
+ * @copyright      Copyright (c) 2017
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Look list template
+ *
+ * @category    Siteway
+ * @package     Siteway_Lookbook
+ * @author      Ultimate Module Creator
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_looks = $this->getLooks(); ?>
+<div class="page-title look-title">
+    <h1><?php echo Mage::helper('siteway_lookbook')->__('Looks') ?></h1>
+</div>
+<?php if ($_looks->getSize() > 0) :?>
+    <?php echo $this->getPagerHtml(); ?>
+    <div class="look-list-container">
+    <?php foreach ($_looks as $_look) : ?>
+        <div class="look-list-item">
+            <?php echo $_look->getDescription();?>
+<br />
+        </div>
+    <?php endforeach;?>
+    </div>
+    <?php echo $this->getPagerHtml(); ?>
+<?php else : ?>
+    <?php echo Mage::helper('siteway_lookbook')->__('There are no looks at this moment');?>
+<?php endif;?>

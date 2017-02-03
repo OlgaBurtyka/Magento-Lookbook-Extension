@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Siteway_Lookbook extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Siteway
+ * @package        Siteway_Lookbook
+ * @copyright      Copyright (c) 2017
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <siteway_lookbook translate="title" module="siteway_lookbook">
+                                        <title>Lookbook</title>
+                                    </siteway_lookbook>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <siteway_lookbook translate="title" module="siteway_lookbook">
+                        <title>LookBook</title>
+                        <children>
+                            <look translate="title" module="siteway_lookbook">
+                                <title>Look</title>
+                                <sort_order>0</sort_order>
+                            </look>
+                        </children>
+                    </siteway_lookbook>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <siteway_lookbook translate="title" module="siteway_lookbook">
+            <title>LookBook</title>
+            <sort_order>67</sort_order>
+            <children>
+                <look translate="title" module="siteway_lookbook">
+                    <title>Look</title>
+                    <action>adminhtml/lookbook_look</action>
+                    <sort_order>0</sort_order>
+                </look>
+            </children>
+        </siteway_lookbook>
+    </menu>
+</config>

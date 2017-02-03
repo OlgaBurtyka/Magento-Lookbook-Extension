@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Siteway_Lookbook extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Siteway
+ * @package        Siteway_Lookbook
+ * @copyright      Copyright (c) 2017
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <modules>
+        <Siteway_Lookbook>
+            <version>1.0.0</version>
+        </Siteway_Lookbook>
+    </modules>
+    <global>
+        <resources>
+            <siteway_lookbook_setup>
+                <setup>
+                    <module>Siteway_Lookbook</module>
+                    <class>Siteway_Lookbook_Model_Resource_Setup</class>
+                </setup>
+            </siteway_lookbook_setup>
+        </resources>
+        <blocks>
+            <siteway_lookbook>
+                <class>Siteway_Lookbook_Block</class>
+            </siteway_lookbook>
+        </blocks>
+        <helpers>
+            <siteway_lookbook>
+                <class>Siteway_Lookbook_Helper</class>
+            </siteway_lookbook>
+        </helpers>
+        <models>
+            <siteway_lookbook>
+                <class>Siteway_Lookbook_Model</class>
+                <resourceModel>siteway_lookbook_resource</resourceModel>
+            </siteway_lookbook>
+            <siteway_lookbook_resource>
+                <class>Siteway_Lookbook_Model_Resource</class>
+                <entities>
+                    <look>
+                        <table>siteway_lookbook_look</table>
+                    </look>
+                    <look_product>
+                        <table>siteway_lookbook_look_product</table>
+                    </look_product>
+                    <look_category>
+                        <table>siteway_lookbook_look_category</table>
+                    </look_category>
+                </entities>
+            </siteway_lookbook_resource>
+        </models>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <siteway_lookbook>
+                    <file>siteway_lookbook.xml</file>
+                </siteway_lookbook>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Siteway_Lookbook>
+                    <files>
+                        <default>Siteway_Lookbook.csv</default>
+                    </files>
+                </Siteway_Lookbook>
+            </modules>
+        </translate>
+        <events>
+            <core_block_abstract_prepare_layout_after>
+                <observers>
+                    <siteway_lookbook_look_product>
+                        <type>singleton</type>
+                        <class>siteway_lookbook/adminhtml_observer</class>
+                        <method>addProductLookBlock</method>
+                    </siteway_lookbook_look_product>
+                </observers>
+            </core_block_abstract_prepare_layout_after>
+            <adminhtml_catalog_category_tabs>
+                <observers>
+                    <siteway_lookbook_look_category>
+                        <type>singleton</type>
+                        <class>siteway_lookbook/adminhtml_observer</class>
+                        <method>addCategoryLookBlock</method>
+                    </siteway_lookbook_look_category>
+                </observers>
+            </adminhtml_catalog_category_tabs>
+            <catalog_product_save_after>
+                <observers>
+                    <siteway_lookbook_look_product>
+                        <type>singleton</type>
+                        <class>siteway_lookbook/adminhtml_observer</class>
+                        <method>saveProductLookData</method>
+                    </siteway_lookbook_look_product>
+                </observers>
+            </catalog_product_save_after>
+            <catalog_category_save_after>
+                <observers>
+                    <siteway_lookbook_look_category>
+                        <type>singleton</type>
+                        <class>siteway_lookbook/adminhtml_observer</class>
+                        <method>saveCategoryLookData</method>
+                    </siteway_lookbook_look_category>
+                </observers>
+            </catalog_category_save_after>
+        </events>
+        <global_search>
+            <look>
+                <class>siteway_lookbook/adminhtml_search_look</class>
+                <acl>siteway_lookbook</acl>
+            </look>
+        </global_search>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Siteway_Lookbook before="Mage_Adminhtml">Siteway_Lookbook_Adminhtml</Siteway_Lookbook>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+        <routers>
+            <siteway_lookbook>
+                <use>standard</use>
+                <args>
+                    <module>Siteway_Lookbook</module>
+                    <frontName>siteway_lookbook</frontName>
+                </args>
+            </siteway_lookbook>
+        </routers>
+        <layout>
+            <updates>
+                <siteway_lookbook>
+                    <file>siteway_lookbook.xml</file>
+                </siteway_lookbook>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Siteway_Lookbook>
+                    <files>
+                        <default>Siteway_Lookbook.csv</default>
+                    </files>
+                </Siteway_Lookbook>
+            </modules>
+        </translate>
+    </frontend>
+    <default>
+        <siteway_lookbook>
+            <look>
+                <breadcrumbs>1</breadcrumbs>
+            </look>
+        </siteway_lookbook>
+    </default>
+</config>

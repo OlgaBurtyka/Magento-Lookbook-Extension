@@ -1,0 +1,81 @@
+<?php 
+/**
+ * Siteway_Lookbook extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Siteway
+ * @package        Siteway_Lookbook
+ * @copyright      Copyright (c) 2017
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Look list template
+ *
+ * @category    Siteway
+ * @package     Siteway_Lookbook
+ * @author      Ultimate Module Creator
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_looks = $this->getLooks(); ?>
+
+
+
+<div id="loader" class="loaded"></div>
+<?php #echo Zend_Debug::dump($_looks); ?>
+
+
+<?php if ($_looks->getSize() > 0) :?>
+    <div class="container book-grid no-show">
+        <div class="row">
+            <div class="grid cs-style-4 masonry-grid">
+
+                    <?php foreach ($_looks as $_look) : ?>
+                        <?php 
+                            
+                            if( $_look->getSelectedProductsCollection()->getSize() > 0) {
+                                $_URL = $_look->getSelectedProductsCollection()->getFirstItem()->getProductUrl();
+                            }
+                            elseif ($_look->getSelectedCategoriesCollection()->getSize() > 0) {
+                                $_URL = $_look->getSelectedCategoriesCollection()->getFirstItem()->getUrl();
+                            }
+                            elseif ($_look->getSelectedCategoriesCollection()->getSize() > 0) {
+                                $_URL = $_look->getSelectedCategoriesCollection()->getFirstItem()->getUrl();
+                            }
+                            elseif ($_look->getUrl()) {
+                                $_URL = $_look->getUrl();
+                            }                                
+                            else
+                            {
+                                $_URL = false;
+                            }
+                            
+                        ?>
+                        
+                        <?php if (  $_look->getImage() && $_URL ) :?>
+                        
+                        <div class="item">
+                            <div class="figure">
+                                <div>
+                                    <a href="<?php echo $_URL ?>">
+                                        <img src="<?php echo Mage::helper('siteway_lookbook/look_image')->init($_look, 'image')->resize(400,400);?>" alt="<?php echo $this->escapeHtml($_look->getDescription());?>" title="<?php echo $this->escapeHtml($_look->getDescription());?>" />
+                                    </a>
+                                </div>
+                            </div><! -- figure -->
+                        </div><! -- item -->
+                        <?php endif;?>
+                    <?php endforeach;?>
+
+                <div class="clear"></div>
+            </div><! -- grid -->
+        </div><! -- row -->
+    </div> <! -- container -->
+
+    
+<?php endif;?>

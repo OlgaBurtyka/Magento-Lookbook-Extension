@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Siteway_Lookbook extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Siteway
+ * @package        Siteway_Lookbook
+ * @copyright      Copyright (c) 2017
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <modules>
+        <Siteway_Lookbook>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Catalog />
+             </depends>
+        </Siteway_Lookbook>
+    </modules>
+</config>

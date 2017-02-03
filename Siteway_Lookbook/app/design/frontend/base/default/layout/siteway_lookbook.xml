@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Siteway_Lookbook extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Siteway
+ * @package        Siteway_Lookbook
+ * @copyright      Copyright (c) 2017
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<layout>
+    
+    <siteway_lookbook_look_index translate="label" module="siteway_lookbook">
+        <label>Looks list</label>
+        <update handle="page_one_column" />
+        <reference name="content">
+            <block type="siteway_lookbook/look_list" name="look_list" template="siteway_lookbook/look/list.phtml" />
+        </reference>
+    </siteway_lookbook_look_index>
+</layout>
