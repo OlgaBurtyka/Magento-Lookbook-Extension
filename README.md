@@ -1,3 +1,17 @@
 # Magento-Lookbook-Extention
 
 Created with [Ultimate Module Creator 1.9.6.0](https://github.com/tzyganu/UMC1.9)
+
+## List View: 
+
+![List View](Preview-List.png?raw=true "List View")
+
+## Edit View: 
+![List View](Preview-Edit.png?raw=true "Edit View")
+
+
+### Output List on CMS PAGE
+
+Add: 
+
+`{{block type="siteway_lookbook/look_list" name="look_list" template="siteway_lookbook/look/list.phtml"}}`
